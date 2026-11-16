@@ -1,0 +1,10 @@
+[Officium]
+S. Joannis Baptistæ de Rossi Confessoris
+
+[Rank]
+;;Duplex;;3;;vide C5
+
+[Rule]
+vide C5;
+Gloria
+

@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "form": "1962",
+  "calendar": "general-roman",
+  "source": {
+    "repository": "DivinumOfficium/divinum-officium",
+    "revision": "d6c806624c9dcff6c715ef2d4abc3c9dee25d412"
+  },
+  "months": {
+    "2026-01": {
+      "file": "assets/propers/2026-01.js",
+      "days": 31,
+      "sha256": "01694fefbd19781331d7af5a098cf63cdd5f77b1a4a9cf87e7c602c4806acb75"
+    },
+    "2026-02": {
+      "file": "assets/propers/2026-02.js",
+      "days": 28,
+      "sha256": "880f91ed8729811e6998965895fcb2466f3650c04dc084a905344b1c0cc34f4c"
+    },
+    "2026-03": {
+      "file": "assets/propers/2026-03.js",
+      "days": 31,
+      "sha256": "5d17965765da5d5a689548d55388dbf4680486c8456b08da822695d5a754c176"
+    },
+    "2026-04": {
+      "file": "assets/propers/2026-04.js",
+      "days": 30,
+      "sha256": "733e5524d11a55aa1da5b7898f404bb92824fec9ab95b03fc334187200634172"
+    },
+    "2026-05": {
+      "file": "assets/propers/2026-05.js",
+      "days": 31,
+      "sha256": "eb31ce0c2e861d600bcdfdd1089175c63cefe439ef38d56743905502dbe9c288"
+    },
+    "2026-06": {
+      "file": "assets/propers/2026-06.js",
+      "days": 30,
+      "sha256": "0c54178105a3d75d3ccaad14a43c22eb78a7217e8d12150235beb8161352dec2"
+    },
+    "2026-07": {
+      "file": "assets/propers/2026-07.js",
+      "days": 31,
+      "sha256": "2ca0f948cf949ac2ba6935daa29a1533a7ef410f65d957f6a88b4736d16590bb"
+    },
+    "2026-08": {
+      "file": "assets/propers/2026-08.js",
+      "days": 31,
+      "sha256": "78150d6cee4870a6c44982857e69955686550d5cce24fdc22c4b214d5f0a0d5f"
+    },
+    "2026-09": {
+      "file": "assets/propers/2026-09.js",
+      "days": 30,
+      "sha256": "cc9e4d44e3cf846c4e1b0cfbca8a177f478b8a312672d13d69793ac0c10dde88"
+    },
+    "2026-10": {
+      "file": "assets/propers/2026-10.js",
+      "days": 31,
+      "sha256": "227fab47ed50c3d5c218e20a4cc33363b9505e48dcd40f0e7b343724354b9766"
+    },
+    "2026-11": {
+      "file": "assets/propers/2026-11.js",
+      "days": 30,
+      "sha256": "d59cd762fa13602dcdb3488981df6ac2611edc03db2785828bfb2a0372c60db5"
+    },
+    "2026-12": {
+      "file": "assets/propers/2026-12.js",
+      "days": 31,
+      "sha256": "39396dc2803031c3c9fc0fc31e4854b002ca0745f7fa304a3b220b4c9b08b913"
+    },
+    "2027-01": {
+      "file": "assets/propers/2027-01.js",
+      "days": 31,
+      "sha256": "9722bccc8602fbec21c8892be0d692911c6bedc5e850df5efe3e56289baebb71"
+    },
+    "2027-02": {
+      "file": "assets/propers/2027-02.js",
+      "days": 28,
+      "sha256": "fbe8fcf046ec545c21ec9275a9ef2d2b8441f9d27880de745c140fc5f4891696"
+    },
+    "2027-03": {
+      "file": "assets/propers/2027-03.js",
+      "days": 31,
+      "sha256": "0d7bc4c6fb67c7c622c16f6b0e567c0902763efb4ba347d9529438fa1a1152ba"
+    },
+    "2027-04": {
+      "file": "assets/propers/2027-04.js",
+      "days": 30,
+      "sha256": "545f33ef96ae9a9e84d9338ca2e377bf7ee329f8e1e2c0c7e48f052ddaa040d8"
+    },
+    "2027-05": {
+      "file": "assets/propers/2027-05.js",
+      "days": 31,
+      "sha256": "ffe1505890c34db880fa8273eefbc1963fbb201d321682a763530a6fe19f3abc"
+    },
+    "2027-06": {
+      "file": "assets/propers/2027-06.js",
+      "days": 30,
+      "sha256": "e9f9d40a09ae055494cba32d773ff8d21089d8987ae961f2828a13bfdd8d504a"
+    },
+    "2027-07": {
+      "file": "assets/propers/2027-07.js",
+      "days": 31,
+      "sha256": "e3db4274cd1797dfc5e39434ac1195bae6ea52a0ccc3eb3d674e9e8f359b59e1"
+    },
+    "2027-08": {
+      "file": "assets/propers/2027-08.js",
+      "days": 31,
+      "sha256": "e12b5b5f77999bfa6cfd946c9142bbaf14fe82c26cd3a3494033f8fa18ec41cd"
+    },
+    "2027-09": {
+      "file": "assets/propers/2027-09.js",
+      "days": 30,
+      "sha256": "29887d83036748a7280df37a7064c08328be04f51516baef9b7a261d188cefc6"
+    },
+    "2027-10": {
+      "file": "assets/propers/2027-10.js",
+      "days": 31,
+      "sha256": "0234c55481cb1b502d06a2553578b06212da43d31f3ef3436dd2750d5487a725"
+    },
+    "2027-11": {
+      "file": "assets/propers/2027-11.js",
+      "days": 30,
+      "sha256": "6bf52bd82d43d93be781416e96263dfd64ec05529af0f1611d82e7d10be2d0f0"
+    },
+    "2027-12": {
+      "file": "assets/propers/2027-12.js",
+      "days": 31,
+      "sha256": "5625cc405fd6e5b86699d702926de627c4c4f1db002fcb957a5f301617aa5247"
+    }
+  }
+}

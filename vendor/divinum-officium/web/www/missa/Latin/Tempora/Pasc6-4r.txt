@@ -1,0 +1,13 @@
+@Tempora/Pasc5-4
+
+[Officium]
+Feria V infra Hebdomadam post Ascensionem
+
+[Rank]
+;;Feria;;1
+
+[Rule]
+ex Tempora/Pasc5-4;
+Gloria
+Suffr=Maria3;Ecclesiæ,Papa;;
+

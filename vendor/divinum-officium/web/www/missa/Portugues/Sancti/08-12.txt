@@ -1,0 +1,11 @@
+[Officium]
+S. Clara, Virgem
+
+[Comment]
+# 12 VIII – S. Clara, Virgem
+! 3 classe
+! Paramentos brancos
+
+[Name]
+Clara
+

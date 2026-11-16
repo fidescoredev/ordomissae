@@ -1,0 +1,8 @@
+@Tempora/Pent03-0r
+
+[Rule]
+Gloria
+Credo
+Prefatio=Trinitate
+Suffr=Sanctorum;Maria3,Ecclesiæ,Papa;;
+

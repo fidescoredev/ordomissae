@@ -1,0 +1,15 @@
+{
+  "name": "ordo-missae",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Ordinário da Missa em português e latim, preparado para GitHub Pages",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "build:pages": "npm run build && npm run check && node scripts/package-pages.mjs",
+    "check": "node scripts/check.mjs && node scripts/check-calendar.mjs && node scripts/check-propers.mjs",
+    "generate:propers": "node scripts/generate-propers.mjs",
+    "sync:calendar": "node scripts/sync-calendar.mjs",
+    "start": "node scripts/serve.mjs"
+  },
+  "engines": { "node": ">=18" }
+}

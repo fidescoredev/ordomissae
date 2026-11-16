@@ -1,0 +1,15 @@
+[Officium]
+S. Sabbæ Abbatis
+
+[Rank]
+;;Simplex;;1.1;;vide C5b
+
+[Rule]
+vide C5b;
+
+[Name]
+Sabbæ
+Secreta=Sabbas
+Postcommunio=Sabbas
+Oratio=Sabbas
+

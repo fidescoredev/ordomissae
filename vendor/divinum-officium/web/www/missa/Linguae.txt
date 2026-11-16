@@ -1,0 +1,11 @@
+Cesky
+Ukrainian
+English
+Magyar
+Italiano
+Deutsch
+Polski
+French
+Espanol
+Portugues
+

@@ -1,0 +1,6 @@
+[Officium]
+Feria Quarta infra Hebdomadam I post Octavam Pentecostes
+
+[Oratio]
+@Tempora/Pent01-0a:Oratio
+
