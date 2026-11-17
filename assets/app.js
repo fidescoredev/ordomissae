@@ -11,7 +11,7 @@
     const saved = JSON.parse(localStorage.getItem(storageKey) || '{}');
     if (['both', 'pt', 'la'].includes(saved.language)) state.language = saved.language;
     if (typeof saved.notes === 'boolean') state.notes = saved.notes;
-    if (Number.isFinite(saved.font)) state.font = Math.max(16, Math.min(26, saved.font));
+    if (Number.isFinite(saved.font)) state.font = Math.max(16, Math.min(30, saved.font));
     if (typeof saved.bookmark === 'string' && sections.some(s => s.id === saved.bookmark)) state.bookmark = saved.bookmark;
   } catch { storageAvailable = false; }
 
@@ -29,11 +29,12 @@
   function preferences() {
     document.body.dataset.language = state.language;
     document.body.classList.toggle('notes-hidden', !state.notes && !$('#search').value.trim());
-    document.documentElement.style.setProperty('--reader-size', state.font + 'px');
+    document.documentElement.style.setProperty('--text-scale', state.font / 18);
+    $('#font-size-value').textContent = Math.round(state.font / 18 * 100) + '%';
     $(`input[name="language"][value="${state.language}"]`).checked = true;
     $('#show-notes').checked = state.notes;
     $('#font-down').disabled = state.font <= 16;
-    $('#font-up').disabled = state.font >= 26;
+    $('#font-up').disabled = state.font >= 30;
     all('[data-bookmark]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.bookmark === state.bookmark)));
     $('#resume').hidden = !state.bookmark;
     if (state.bookmark) {
@@ -50,8 +51,21 @@
     state.notes = event.target.checked; preferences(); persist();
   });
   for (const [id, delta] of [['#font-down', -1], ['#font-up', 1]]) $(id).addEventListener('click', () => {
-    state.font = Math.max(16, Math.min(26, state.font + delta)); preferences(); persist();
+    state.font = Math.max(16, Math.min(30, state.font + delta)); preferences(); persist();
   });
+  $('#font-reset').addEventListener('click', () => {
+    state.font = 18; preferences(); persist();
+  });
+  // Keep sticky panels below the header as text wraps at larger sizes.
+  const header = $('.site-header');
+  const readerTools = $('.reader-tools');
+  new ResizeObserver(() => {
+    document.documentElement.style.setProperty('--header-height', Math.ceil(header.getBoundingClientRect().height) + 'px');
+    document.documentElement.style.setProperty('--tools-height', Math.ceil(readerTools.getBoundingClientRect().height) + 'px');
+  }).observe(header);
+  new ResizeObserver(() => {
+    document.documentElement.style.setProperty('--tools-height', Math.ceil(readerTools.getBoundingClientRect().height) + 'px');
+  }).observe(readerTools);
   all('[data-bookmark]').forEach(button => button.addEventListener('click', () => {
     state.bookmark = state.bookmark === button.dataset.bookmark ? '' : button.dataset.bookmark;
     preferences(); persist();

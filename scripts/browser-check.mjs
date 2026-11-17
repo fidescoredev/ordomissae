@@ -125,8 +125,10 @@ try {
   assert.equal(await evaluate('document.querySelector("#coleta .proper-content").textContent.includes("Gertrudes")'), false, 'Texto anterior permaneceu depois da troca de data');
   await chooseDate('2026-11-16');
   await evaluate('document.querySelector("#clear-search").click()');
+  const baseText = await evaluate(`['.prayer-text','.rubric','.daily-intro','.sources p','.language-switch span'].map(selector => parseFloat(getComputedStyle(document.querySelector(selector)).fontSize))`);
   await evaluate('document.querySelector("#font-up").click()');
-  assert.equal(await evaluate('getComputedStyle(document.documentElement).getPropertyValue("--reader-size")'), '19px');
+  const largerText = await evaluate(`['.prayer-text','.rubric','.daily-intro','.sources p','.language-switch span'].map(selector => parseFloat(getComputedStyle(document.querySelector(selector)).fontSize))`);
+  assert.ok(largerText.every((size, index) => size > baseText[index]), 'O aumento precisa alcançar orações, notas, liturgia, fontes e controles');
   await evaluate('document.querySelector("#show-notes").click()');
   assert.equal(await evaluate('getComputedStyle(document.querySelector(".rubric")).display'), 'none');
   await evaluate('document.querySelector("#show-notes").click();document.querySelector("#font-down").click();document.querySelector("[data-bookmark=credo]").click()');
@@ -155,6 +157,33 @@ try {
       await writeFile('.preview/mobile-reading.png', Buffer.from((await cdp('Page.captureScreenshot', { format: 'png' })).data, 'base64'));
     }
   }
+  await evaluate('for(let i=0;i<20;i++)document.querySelector("#font-up").click()');
+  assert.equal(await evaluate('document.querySelector("#font-up").disabled'), true);
+  assert.equal(await evaluate('document.querySelector("#font-size-value").textContent'), '167%');
+  await cdp('Page.reload');
+  await waitFor('document.querySelector("#proper-status").dataset.state === "ready"', 'preferência de tamanho após recarregar');
+  assert.equal(await evaluate('document.querySelector("#font-size-value").textContent'), '167%', 'Tamanho não persistiu');
+  for (const width of [320, 390, 768, 1440]) {
+    await cdp('Emulation.setDeviceMetricsOverride', { width, height: 844, deviceScaleFactor: 1, mobile: width < 720 });
+    await evaluate('scrollTo(0,0)');
+    await new Promise(r => setTimeout(r, 150));
+    assert.ok(await evaluate('document.documentElement.scrollWidth <= innerWidth'), 'Texto máximo causou rolagem horizontal em ' + width);
+    assert.ok(await evaluate('document.querySelector("#font-up").getBoundingClientRect().right <= innerWidth'), 'Controle de tamanho fora da tela');
+    assert.ok(await evaluate('Math.abs(parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--header-height")) - document.querySelector(".site-header").getBoundingClientRect().height) <= 1'), 'Altura do cabeçalho não acompanha o texto');
+    if (width === 390) {
+      await writeFile('.preview/large-mobile.png', Buffer.from((await cdp('Page.captureScreenshot', { format: 'png' })).data, 'base64'));
+      await evaluate('document.querySelector("#introito").scrollIntoView();');
+      await new Promise(r => setTimeout(r, 700));
+      const bounds = await evaluate('document.querySelector(".site-text-tools").getBoundingClientRect().toJSON()');
+      assert.ok(bounds.top >= 0 && bounds.bottom <= 844, 'Controle de tamanho não ficou acessível ao rolar');
+      await writeFile('.preview/large-mobile-reading.png', Buffer.from((await cdp('Page.captureScreenshot', { format: 'png' })).data, 'base64'));
+    }
+  }
+  await evaluate('document.querySelector("#font-reset").click()');
+  assert.equal(await evaluate('document.querySelector("#font-size-value").textContent'), '100%');
+  await evaluate('for(let i=0;i<5;i++)document.querySelector("#font-down").click()');
+  assert.equal(await evaluate('document.querySelector("#font-down").disabled'), true);
+  await evaluate('document.querySelector("#font-reset").click()');
   await cdp('Emulation.setEmulatedMedia', { media: 'print' });
   assert.equal(await evaluate('getComputedStyle(document.querySelector(".reader-tools")).display'), 'none');
   assert.equal(await evaluate('getComputedStyle(document.querySelector(".prayer-row")).display'), 'grid');

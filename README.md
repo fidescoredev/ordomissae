@@ -10,7 +10,7 @@ Abra **[index.html](index.html)** no navegador para ler a página. Não é neces
 - 157 pares de texto em português e latim, incluindo os diálogos e orações longas.
 - Índice lateral no computador e índice em janela no celular.
 - Busca por palavras, inclusive sem acentos; várias palavras são combinadas na mesma etapa.
-- Leitura bilíngue, português ou latim; ajuste de letra e exibição de notas.
+- Leitura bilíngue, português ou latim; exibição de notas e ajuste do texto de todo o site por A− / A+ no cabeçalho. A porcentagem restaura o tamanho padrão; a preferência fica salva no navegador.
 - Uma etapa marcada para retomar, com preferências salvas no navegador quando o armazenamento local está disponível.
 - Estilo de impressão. A impressão inclui todas as etapas, mesmo com uma busca ativa, no idioma selecionado.
 - Ordinário fixo legível sem JavaScript; a inserção dos próprios usa JavaScript e arquivos locais.
